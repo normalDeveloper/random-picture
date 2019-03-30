@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>random picture</title>
+</head>
+
+<body>
+	<canvas class='container' width='800px' height='500px' style='border: 1px solid #187af4'></canvas>
+	<script>
+		var container = document.getElementsByClassName('container')[0];
+		var c = container.getContext('2d');
+		c.fillStyle = '#ffffe0';
+		c.fillRect(0, 0, 800, 500);
+
+		function randomNumber(min, max) {
+			return (Math.floor(Math.random() * (max - min)) + min);
+		}
+
+		function randomString(length) {
+			length = length || 74;
+			var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789123456789+-*/abcdefghijklmnopqrstuvwxyz';
+			var max = letters.length;
+			var ret = '';
+			for (i = 0; i < length; i++) {
+				ret += letters.charAt(Math.floor(Math.random() * max));
+			}
+			return ret;
+		}
+		for (var i = 0; i < Math.random() * 100; i++) {
+			var cr1 = '';
+			var tmp = Math.ceil(Math.random() * 15);
+			if (tmp > 9) {
+				switch (tmp) {
+					case (10):
+						cr1 += 'a';
+						break;
+					case (11):
+						cr1 += 'b';
+						break;
+					case (12):
+						cr1 += 'c';
+						break;
+					case (13):
+						cr1 += 'd';
+						break;
+					case (14):
+						cr1 += 'e';
+						break;
+					case (15):
+						cr1 += 'f';
+						break;
+				}
+			} else {
+				cr1 += tmp;
+			}
+			var cr2 = '';
+			var tmp = Math.ceil(Math.random() * 15);
+			if (tmp > 9) {
+				switch (tmp) {
+					case (10):
+						cr2 += 'a';
+						break;
+					case (11):
+						cr2 += 'b';
+						break;
+					case (12):
+						cr2 += 'c';
+						break;
+					case (13):
+						cr2 += 'd';
+						break;
+					case (14):
+						cr2 += 'e';
+						break;
+					case (15):
+						cr2 += 'f';
+						break;
+				}
+			} else {
+				cr2 += tmp;
+			}
+			var cr3 = '';
+			var tmp = Math.ceil(Math.random() * 15);
+			if (tmp > 9) {
+				switch (tmp) {
+					case (10):
+						cr3 += 'a';
+						break;
+					case (11):
+						cr3 += 'b';
+						break;
+					case (12):
+						cr3 += 'c';
+						break;
+					case (13):
+						cr3 += 'd';
+						break;
+					case (14):
+						cr3 += 'e';
+						break;
+					case (15):
+						cr3 += 'f';
+						break;
+				}
+			} else {
+				cr3 += tmp;
+			}
+			c.strokeStyle = '#' + cr1 + cr2 + cr3;
+			c.fillStyle = '#' + cr1 + cr2 + cr3;
+			c.font = Math.random() * 100 + 'px serif';
+			var textkind = Math.random();
+			if (textkind < 0.5) {
+				c.fillText(randomString(2), randomNumber(0, 800), randomNumber(0, 500));
+			} else {
+				c.strokeText(randomString(2), randomNumber(0, 800), randomNumber(0, 500));
+			}
+		}
+	</script>
+</body>
+
+</html>
